@@ -2,11 +2,11 @@
 
 Welcome to the Monolith to Microservices Immersion Day!
 
-This is a **200-300 level** hands-on lab to give you hands-on experience  hosting an example monolith on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), and then starting to decompose this into a number of microservices using Docker and the [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
+This is a **200-300 level** hands-on lab to give you experience hosting an example monolith on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), and then starting to decompose this into a number of microservices using Docker and the [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
 
 We try to strike a healthy balance between AWS and application level concerns.
 
-Assumed knowledge:
+**Assumed knowledge:**
 
 - AWS Console & AWS CLI
 - AWS CloudFormation
