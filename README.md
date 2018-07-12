@@ -1,6 +1,8 @@
 ## Monolith to Microservices
 
-Welcome to the Monolith to Microservices Immersion Day! This is a **200-300 level** hands-on lab to give you hands-on experience  hosting an example monolith on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), and then starting to decompose this into a number of microservices using Docker and the [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
+Welcome to the Monolith to Microservices Immersion Day!
+
+This is a **200-300 level** hands-on lab to give you hands-on experience  hosting an example monolith on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), and then starting to decompose this into a number of microservices using Docker and the [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
 
 We try to strike a healthy balance between AWS and application level concerns.
 
@@ -44,7 +46,7 @@ N.B. We're not suggesting this is anything close to best practice for continuous
 
 If you use the AWS CLI, do something like the following:
 
-	$ aws s3api create-bucket --bucket monolith-build --region ap-southeast-2 --create-bucket-configuration LocationConstraint=ap-southeast-2
+`$ aws s3api create-bucket --bucket monolith-build --region ap-southeast-2 --create-bucket-configuration LocationConstraint=ap-southeast-2`
 
 Once you've created your bucket, make a note of its name. It should be private to your AWS account, and you'll use it throughout the lab.
 
