@@ -1,37 +1,47 @@
-## Introduction
-### Breaking apart a monolith (TBD)
-To be updated ---  Monolith to Microservices for SaaS working example - Initially written for an ISV immersion day
+## Setting up your Development environment
 
-## Outcomes
-1. Instrumenting to understanding the source monolith
-2. Decoupling the data model
-3. Approaches to decomposing an application monolith
-4. Migrating services off monolith (introducing a container approach a la ECS)
-5. Security model / monolith vs many services (e.g. separation of roles)
+Prerequisites:
 
-### Let's get started
-1. [Part One: Monolith setup, deployment and hosting ()
-2. [Part Two: Database target config and setup ()
-3. [Part Three: Breaking the monolith apart into microservices on ECS] ()
-4. [Part Four: Update the monolith to talk to the new target microservices] ()
-5. [Part Five: Next steps, Where to from here ?] ()
+- Java (JRE)
+- AWS CLI tool
+- Git
+- more...
 
---- Prerequisites ---
+We have a bunch of automation and tools ready that you can use for the duration of the lab.
 
-## GitHub account & Git client 
-1. [Setting up a GitHub account] (https://services.github.com/on-demand/intro-to-github/create-github-account)
-2. [Git client] ~ Use the integrated IDE git, or  a third party (https://alternativeto.net/category/developer-tools/git-client/)
+Browse to, [https://github.com/isvlabs/monolith-to-microservices](https://github.com/isvlabs/monolith-to-microservices) and browse the repository if you haven't already.
 
-## Dev workstation setup
-1. [Installing the AWS CLI] (http://docs.aws.amazon.com/cli/latest/userguide/installing.html)
-2. [Installing the Java SDK] (http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-3. [Installing Docker] (https://docs.docker.com/engine/installation/)
-4. [Installing Gradle] (https://gradle.org/install/) 
-5. [Installing npm] (https://docs.npmjs.com/getting-started/installing-node) 
-6. [Installing Node.js] (https://nodejs.org/en/download/)
+Keep this open in a browser tab. We'll be using it frequently throughout the lab.
 
-## Java IDE setup
-1. [Installing Eclipse] (http://www.eclipse.org/downloads/) 
+## Host and launch the Monolith
 
-## Node IDE setup
-1. [Installing VisualStudio] (https://visualstudio.microsoft.com/vs/features/node-js/) 
+### Creating a build artifact repository in S3
+
+Log into S3 and create a bucket. You'll use this as a staging area to store your application artifact, and to deploy from.
+
+N.B. We're not suggesting this is anything close to best practice for continuous build or deployment, but it's pragmatic for the purpose of this lab, and to easily deploy our monolith to [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/).
+
+If you use the AWS CLI, do something like the following:
+
+	$ aws s3api create-bucket --bucket monolith-build --region ap-southeast-2 --create-bucket-configuration LocationConstraint=ap-southeast-2
+
+Once you've created your bucket, make a note of its name. It should be private to your AWS account, and you'll use it throughout the lab.
+
+### Build the monolith
+
+Follow the build instructions and create a **.war** file of your mono
+
+Upload your **.war** file to your S3 bucket
+
+### Deploy the monolith to Beanstalk
+
+We've supplied a CloudFormation template to deploy your application to AWS Elastic Beanstalk. It takes a few arguments, one of which is the S3 location to your application artifact.
+
+We will deploy this to Tomcat, and also build a MySQL database on the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) for you.
+
+
+
+
+
+
+
