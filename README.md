@@ -1,17 +1,38 @@
+## Monolith to Microservices
+
+Welcome to the Monolith to Microservices Immersion Day! This is a **200-300 level** hands-on lab to give you hands-on experience  hosting an example monolith on [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/), and then starting to decompose this into a number of microservices using Docker and the [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/).
+
+We try to strike a healthy balance between AWS and application level concerns.
+
+Assumed knowledge:
+
+- AWS Console & AWS CLI
+- AWS CloudFormation
+- Amazon ECS
+- AWS Elastic Beanstalk
+- Amazon DynamoDB
+- Java application development
+- MySQL database
+- Node.js
+
 ## Setting up your Development environment
 
-Prerequisites:
+You'll need the following installed and working on your local machine. If you don't have these working in your local environment, you'll need to do this first.
 
-- Java (JRE)
+A working install of:
+
+- Java JDK or JRE version 7 or higher
+- Node.js v8.10 or higher
 - AWS CLI tool
 - Git
+- Gradle
 - more...
 
-We have a bunch of automation and tools ready that you can use for the duration of the lab.
+We have a bunch of infrastructure automation and sample Java and Node.js application code ready for you to use for the duration of the lab. We've hosted this on [Github](https://github.com/) for you.
 
-Browse to, [https://github.com/isvlabs/monolith-to-microservices](https://github.com/isvlabs/monolith-to-microservices) and browse the repository if you haven't already.
+Browse to, [https://github.com/isvlabs/monolith-to-microservices](https://github.com/isvlabs/monolith-to-microservices) and become familiar with the repository if you haven't already.
 
-Keep this open in a browser tab. We'll be using it frequently throughout the lab.
+We'd suggest keeping this open in a browser tab. We'll be using and referring to the repository frequently throughout the lab.
 
 ## Host and launch the Monolith
 
@@ -37,7 +58,10 @@ Upload your **.war** file to your S3 bucket
 
 We've supplied a CloudFormation template to deploy your application to AWS Elastic Beanstalk. It takes a few arguments, one of which is the S3 location to your application artifact.
 
-We will deploy this to Tomcat, and also build a MySQL database on the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) for you.
+We will deploy the monolith to Tomcat, and also build a MySQL database on the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) for you as part of the deployment.
+
+
+
 
 
 
