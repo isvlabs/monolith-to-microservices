@@ -46,7 +46,9 @@ N.B. We're not suggesting this is anything close to best practice for continuous
 
 If you use the AWS CLI, do something like the following:
 
-`$ aws s3api create-bucket --bucket monolith-build --region ap-southeast-2 --create-bucket-configuration LocationConstraint=ap-southeast-2`
+	aws s3api create-bucket --bucket monolith-build --region ap-southeast-2 --create-bucket-configuration LocationConstraint=ap-southeast-2
+
+You'll want to create a unique name for your S3 bucket. S3 uses a global namespace, so if you use the specific example above, it  should fail as the bucket name **monolith-build** is already taken.
 
 Once you've created your bucket, make a note of its name. It should be private to your AWS account, and you'll use it throughout the lab.
 
