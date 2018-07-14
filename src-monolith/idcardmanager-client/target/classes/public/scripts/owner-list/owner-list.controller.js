@@ -1,0 +1,1 @@
+"use strict";angular.module("ownerList").controller("OwnerListController",["$http",function(t){var n=this;t.get("owners/list").then(function(t){n.owners=t.data})}]);

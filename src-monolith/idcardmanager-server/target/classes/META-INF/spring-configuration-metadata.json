@@ -1,0 +1,18 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.springframework.samples.petclinic.config.PetclinicProperties",
+      "name": "petclinic",
+      "type": "org.springframework.samples.petclinic.config.PetclinicProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "org.springframework.samples.petclinic.config.PetclinicProperties",
+      "name": "petclinic.database",
+      "description": "Relational database supported by SpringBoot Petclinic: hsqldb, mysql or postgresql",
+      "type": "java.lang.String"
+    }
+  ]
+}

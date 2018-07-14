@@ -1,0 +1,35 @@
+{
+  "name": "components-bootstrap",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "homepage": "http://getbootstrap.com",
+  "keywords": [
+    "css",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2"
+  },
+  "main": [
+    "js/bootstrap.js",
+    "css/bootstrap.css"
+  ],
+  "ignore": [
+    "*.json"
+  ],
+  "version": "4.1.1",
+  "_release": "4.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "4.1.1",
+    "commit": "6c183f17f5d8fbfb38af412c5e0a52135f7d01c9"
+  },
+  "_source": "https://github.com/components/bootstrap.git",
+  "_target": "~4.1.1",
+  "_originalSource": "components/bootstrap"
+}
