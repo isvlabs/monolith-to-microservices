@@ -9,9 +9,9 @@
 ## Running idCardManager locally
 ```
 	git clone https://github.com/isvlabs/monolith-to-microservices.git
-	cd idcardmanager-client
+	cd src-monolith/idcardmanager-client
 	./mvnw clean install
-	cd idcardmanager-server
+	cd src-monolith/idcardmanager-server
 	../mvnw spring-boot:run
 ```
 
