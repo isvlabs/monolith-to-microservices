@@ -1,8 +1,7 @@
 'use strict';
 /* App Module */
 var idCardManagerApp = angular.module('idCardManagerApp', [
-    'ui.router', 'infrastructure', 'layoutNav', 'layoutFooter', 'layoutWelcome',
-    'ownerList', 'ownerDetails', 'ownerForm', 'petForm', 'visits', 'vetList']);
+    'ui.router', 'infrastructure', 'layoutNav', 'layoutFooter', 'layoutWelcome', 'employeeForm', "employeeList"]);
 
 idCardManagerApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function(
     $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {

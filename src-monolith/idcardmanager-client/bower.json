@@ -22,8 +22,9 @@
     "angular-aria": "^1.7.2",
     "angular-material": "^1.1.10",
     "angular-messages": "^1.7.2",
+    "fontawesome": "^5.0.6",
     "bootstrap": "components/bootstrap#~4.1.1",
-    "jquery": ">=1.6",
+    "jquery": "components/jquery#~3.2.1",
     "angular-ui-router": "angular-ui-router#1.0.8"
   }
 }

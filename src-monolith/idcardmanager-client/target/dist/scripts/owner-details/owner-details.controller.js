@@ -1,1 +1,0 @@
-"use strict";angular.module("ownerDetails").controller("OwnerDetailsController",["$http","$stateParams",function(t,e){var n=this;t.get("owners/"+e.ownerId).then(function(t){n.owner=t.data})}]);

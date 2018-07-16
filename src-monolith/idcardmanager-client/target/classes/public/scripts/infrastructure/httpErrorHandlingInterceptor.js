@@ -1,1 +1,0 @@
-"use strict";angular.module("infrastructure").factory("HttpErrorHandlingInterceptor",function(){return{responseError:function(r){var n=r.data;return alert(n.error+"\r\n"+n.errors.map(function(r){return r.field+": "+r.defaultMessage}).join("\r\n")),r}}});

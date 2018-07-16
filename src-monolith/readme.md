@@ -17,8 +17,6 @@
 
 You can then access the application here: http://localhost:8080/
 
-<img width="782" alt="spring-petclinic" src="https://cloud.githubusercontent.com/assets/838318/19653851/61c1986a-9a16-11e6-8b94-03fd7f775bb3.png">
-
 ## In case you find a bug/suggested improvement for ID Card Manager
 Our issue tracker is available here: https://github.com/isvlabs/monolith-to-microservices/issues
 
@@ -78,12 +76,12 @@ This SpringBoot Application is splitted in 2 modules - a client module and a ser
 
 | Spring Boot Configuration     | Files |
 |-------------------------------|-------|
-| The Main Class                | [PetClinicApplication.java](idcardmanager-server/src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java)  |
+| The Main Class                | [IDCardManagerApplication.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/IDCardManagerApplication.java)  |
 | Common properties file        | [application.properties](idcardmanager-server/src/main/resources/application.properties)  |
 | Development properties file   | [application-dev.properties](idcardmanager-server/src/main/resources/application-dev.properties)  |
 | Production properties file    | [application-prod.properties](idcardmanager-server/src/main/resources/application-prod.properties)  |
-| Caching: Cache with EhCache   | [CacheConfig.java](idcardmanager-server/src/main/java/org/springframework/samples/petclinic/config/CacheConfig.java) |
-| Homepage                      | Map root context to the index.html template: [WebConfig.java](idcardmanager-server/src/main/java/org/springframework/samples/petclinic/config/WebConfig.java) |
+| Caching: Cache with EhCache   | [CacheConfig.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/config/CacheConfig.java) |
+| Homepage                      | Map root context to the index.html template: [WebConfig.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/config/WebConfig.java) |
 
 
 | Front-end module  | Files |

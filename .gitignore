@@ -1,0 +1,6 @@
+
+\.idea/
+
+src-monolith/idcardmanager-server/target/
+
+src-monolith/idcardmanager-client/target/
