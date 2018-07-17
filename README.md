@@ -1,5 +1,4 @@
-# Monolith to Microservices
-## (Part I)
+# Monolith to Microservices - Part I
 
 Welcome to the Monolith to Microservices Immersion Day!
 
@@ -112,7 +111,7 @@ You may start also a MySql database with docker if you're so inclined:
 docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:3306 mysql:5.7.8
 ```
 
-## Working with the Application in Eclipse/STS
+## Working with the application in Eclipse/STS
 
 ### Prerequisites
 
