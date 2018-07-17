@@ -12,15 +12,15 @@ We try to strike a healthy balance between AWS and application level concerns.
 
 There are some basic prerequisites that you'll need installed and configured locally to get the most out of this lab:
  
-- You'll need local admin access to the machine you use today. Basically, make sure you have the rights to install software.
-- Have a [Java 8+ JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed
-- Have [Git](https://git-scm.com/) installed and working for your OS
-- Make sure you have [Maven](https://maven.apache.org/download.cgi) installed and working
-- Have a recent Eclipse IDE for Java installed, e.g. the [Spring Tool Suite](https://spring.io/tools) (or an equivalent that you are comfortable working with day-day e.g. IntelliJ)
-- Have the [AWS CLI](https://aws.amazon.com/cli/) installed. We’ll configure this below with the credentials you'll use for the hands-on lab
-- Have installed and configured [Node.js v8.10](https://nodejs.org/en/) or later
-- Have a SQL client (which supports MySQL) or simply use the embedded IDE database client
- 
+1. You'll need local admin access to the machine you use today. Basically, make sure you have the rights to install software.
+2. Have a [Java 8+ JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) installed
+3. Have [Git](https://git-scm.com/) installed and working for your OS
+4. Make sure you have [Maven 3+](https://maven.apache.org/download.cgi) installed and working
+5. Have the [AWS CLI](https://aws.amazon.com/cli/) installed. We’ll configure this below with the credentials you'll use for the hands-on lab
+6. Have installed and configured [Node.js v8.10](https://nodejs.org/en/) or later
+7. Have a SQL client (which supports MySQL) or simply use the embedded IDE database client
+8. (Optional) A recent Eclipse IDE for Java installed, e.g. the [Spring Tool Suite](https://spring.io/tools) (or an equivalent that you are comfortable working with day-day e.g. IntelliJ
+
 **What we’ll cover:**
  
 - Building and deploying an existing Java (AngularJS + Bootstrap) monolithic application to AWS
@@ -58,7 +58,6 @@ We'd suggest keeping this Github repository open in a browser tab. We'll be usin
 You'll need to configure the AWS CLI to use the credentials supplied to you for this lab.
 
 Run:
-
 	aws configure
 
 and configure with your **AWS Access Key ID** and **AWS Secret Access Key**.
@@ -73,127 +72,11 @@ https://console.aws.amazon.com/
 
 Use the account number and password provided to you for the purpose of this lab, and log in. We won't show you how to use the AWS console. We assume you are experienced enough with AWS to do this on your own.
 
-## The Sample Application :: ID Card Manager (AngularJS and Spring Boot)
-
-[![Build Status](https://api.travis-ci.org/isvlabs/monolith-to-microservices.svg?branch=master)](https://travis-ci.org/isvlabs/monolith-to-microservices)
-
-### Understanding the ID Card Manager application with a few diagrams
-
-<a href="TBC">See the presentation here</a>
-
-## Running idCardManager locally
-
-```
-	git clone https://github.com/isvlabs/monolith-to-microservices.git
-	cd src-monolith/idcardmanager-client
-	./mvnw clean install
-	cd src-monolith/idcardmanager-server
-	../mvnw spring-boot:run
-```
-
-You can then access the application here: http://localhost:8080/
-
-## In case you find a bug/suggested improvement for ID Card Manager
-
-Our issue tracker is available here: [https://github.com/isvlabs/monolith-to-microservices/issues](https://github.com/isvlabs/monolith-to-microservices/issues).
-
-If you find an issue or would like to make an improvement to this lab, please check the issue tracker, create an issue and then optionally send us a pull request :)
-
-## Database configuration
-
-In its default configuration, this application uses an in-memory database (HSQLDB) which gets populated at startup with data. A similar setup is provided for MySql in case a persistent database configuration is needed.
-
-Note that whenever the database type is changed, the data-access.properties file needs to be updated and the mysql-connector-java artifact from the pom.xml needs to be uncommented.
-
-You may start also a MySql database with docker if you're so inclined:
-
-```
-docker run -e MYSQL_ROOT_PASSWORD=petclinic -e MYSQL_DATABASE=petclinic -p 3306:3306 mysql:5.7.8
-```
-
-## Working with the application in Eclipse/STS
-
-### Prerequisites
-
-The following items should be installed in your system:
-
-* Maven 3 - [https://maven.apache.org/install.html](https://maven.apache.org/install.html)
-* Git command line tool - [https://help.github.com/articles/set-up-git](https://help.github.com/articles/set-up-git)
-* Eclipse with the m2e plugin - m2e is installed by default when using the STS - [http://www.springsource.org/sts](http://www.springsource.org/sts) distribution of Eclipse
-
-Note: when m2e is available, there is an m2 icon in Help -> About dialog.
-
-If m2e is not there, just follow the install process here: [http://eclipse.org/m2e/download/](http://eclipse.org/m2e/download/)
-
-### Steps:
-
-1) On the command line
-
-```
-git clone https://github.com/isvlabs/monolith-to-microservices.git
-```
-
-2) Inside Eclipse
-```
-File -> Import -> Maven -> Existing Maven project
-```
-
-### Activate the ```dev``` Spring profile
-
-In development mode, we recommend you yo use the ```dev``` Spring profile.
-
-Just add the following VM option:
-```
--Dspring.profiles.active=dev
-```
-
-All static resources changes will be monitored by the embedded LiveReload server of Spring Boot Devtools.
-
-See [application-dev.properties](idcardmanager-server/src/main/resources/application-dev.properties) for details.
-
-## Client-side Architecture
-
-This SpringBoot Application is split in 2 modules - a client module and a server module:
-
-* idcardmanager-client : static resources (images, fonts, style, angular JS code) packaged as a webjar.
-* idcardmanager-server : Spring MVC REST API and an index.html template
-
-
-## Looking for something in particular?
-
-| Spring Boot Configuration     | Files |
-|-------------------------------|-------|
-| The Main Class                | [IDCardManagerApplication.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/IDCardManagerApplication.java)  |
-| Common properties file        | [application.properties](idcardmanager-server/src/main/resources/application.properties)  |
-| Development properties file   | [application-dev.properties](idcardmanager-server/src/main/resources/application-dev.properties)  |
-| Production properties file    | [application-prod.properties](idcardmanager-server/src/main/resources/application-prod.properties)  |
-| Caching: Cache with EhCache   | [CacheConfig.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/config/CacheConfig.java) |
-| Homepage                      | Map root context to the index.html template: [WebConfig.java](idcardmanager-server/src/main/java/com/amazon/aws/isvlabs/samples/idcardmanager/config/WebConfig.java) |
-
-
-| Front-end module  | Files |
-|-------------------|-------|
-| Node and NPM      | [The frontend-maven-plugin plugin downloads/installs Node and NPM locally then runs Bower and Gulp](idcardmanager-client/pom.xml)  |
-| Bower             | [JavaScript libraries are defined by the manifest file bower.json](idcardmanager-client/bower.json)  |
-| Gulp              | [Tasks automated by Gulp: minify CSS and JS, generate CSS from LESS, copy other static resources](idcardmanager-client/gulpfile.js)  |
-| Angular JS        | [app.js, controllers and templates](idcardmanager-client/src/scripts/)  |
-
-
-## Building the application locally
-
-To build the the .war file locally:
-
-
-
-## Hosting and launching the Monolith on AWS
-
-Now that we have the monolith running locally, we're going to host it on AWS. Because the monolith is a simple 2/3 tier application architecture, AWS Elastic Beanstalk with Amazon RDS makes this really easy.
-
 ### Creating a build artifact repository in S3
 
 We're going to create an S3 bucket to store our monolith artifact. You'll use this as a staging area to store your application artifact, and to deploy it.
 
-N.B. We're not suggesting this is anything close to best practice for continuous build or deployment, but it's pragmatic for the purpose of this lab, and to easily deploy our monolith to [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/).
+**NOTE:** We're not suggesting this is anything close to best practice for continuous build or deployment, but it's pragmatic for the purpose of this lab, and to easily deploy our monolith to [AWS Elastic Beanstalk](https://aws.amazon.com/documentation/elastic-beanstalk/).
 
 If you use the AWS CLI, do something like the following:
 
@@ -203,15 +86,38 @@ You'll want to create a unique name for your S3 bucket. S3 uses a global namespa
 
 Once you've created your bucket, make a note of its name. It should be private to your AWS account, and you'll use it throughout the lab.
 
-### Building the monolith
 
-The first thing you'll need to do is check out the monolith code. The monolith is part of the Github repository, so clone this to your local environment.
+### The Monolithic Application :: ID Card Manager (AngularJS and Spring Boot)
 
-Import the app into your IDE of choice and check that it compiles. Use Gradle to build the application. This will generate a **.war** file containing your application.
+## Git checkout
 
-Upload your **.war** file to your S3 bucket. Using the AWS CLI that would be something like:
+The first thing you'll need to do is check out the repository. The monolith is part of the Github repository, so clone this to your local environment.
 
-	aws s3 cp monolith.war s3://monolith-build
+	git clone https://github.com/isvlabs/monolith-to-microservices.git
+        
+
+## Building idCardManager locally
+
+From a terminal (or your preferred IDE) use Maven to build the application. 
+
+Note: There are two modules, which need to be built sequentially.
+
+	cd src-monolith/idcardmanager-client
+	../mvnw clean install
+	cd src-monolith/idcardmanager-server
+	../mvnw clean install
+
+Once this has completed succesfully. 
+        
+        Navigate to: src-monolith/idcardmanager-server/target/
+
+The Application artefact (SpringBoot App) should now exist : **idcardmanager.jar**.
+
+## Uploading the application artefact to S3
+
+Upload your **idcardmanager.jar** file to your S3 bucket. Using the AWS CLI that would be something like:
+
+	aws s3 cp idcardmanager.jar s3://monolith-build
 
 We'll now use this as the source location to deploy the monolith to Beanstalk.
 
@@ -223,7 +129,7 @@ We've supplied a CloudFormation template to deploy your application to AWS Elast
 
 We will deploy the monolith to Tomcat, and also build a MySQL database on the [Amazon Relational Database Service (RDS)](https://aws.amazon.com/rds/) for you as part of the deployment.
 
-If you browser to the `cfn/` directory in your repository you should see a file `eb.yml`. This is a YAML CloudFormation template that will take your monolith and deploy it to Tomcat for you.
+If you browse to the `cfn/` directory in your repository you should see a file `eb.yml`. This is a YAML CloudFormation template that will take your monolith and deploy it to Tomcat for you.
 
 To do this via the AWS CLI from the `cfn/` directory in your repository, run something like:
 
@@ -239,6 +145,7 @@ You'll see a stack being created if you query the status:
 Once your application has deployed, you'll see CloudFormation print a number of outputs. One of them will be the DNS endpoint you can use to browse to your monolith. Do this.
 
 ![Monolith on Elastic Beanstalk](img/aws-monolith-eb.png)
+
 
 ## Decomposing the Monolith
 
@@ -260,12 +167,4 @@ Tell us what you'd do next, or better yet - go ahead and do it, and let us know!
 The [issue tracker](https://github.com/isvlabs/monolith-to-microservices/issues) is the preferred channel for bug reports, features requests and submitting pull requests.
 
 For pull requests, editor preferences are available in the [editor config](https://github.com/isvlabs/monolith-to-microservices/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
-
-
-
-
-
-
-
-
 
