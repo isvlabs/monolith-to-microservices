@@ -229,8 +229,8 @@ To do this via the AWS CLI from the `cfn/` directory in your repository, run som
 
 	aws cloudformation create-stack --stack-name monolith-beanstalk \
 	--template-body file://eb.yml	\
-	--parameters ParameterKey=ArtifactS3Bucket,ParameterValue=monolith-build,ParameterKey=ArtifactName,ParameterValue=monolith.war \
-	--tags Key=Name,Value=Monolith on Elastic Beanstalk
+	--parameters ParameterKey=ArtifactS3Bucket,ParameterValue=monolith-build ParameterKey=ArtifactName,ParameterValue=monolith.war \
+	--tags Key=Name,Value="Monolith on Elastic Beanstalk"
 
 You'll see a stack being created if you query the status:
 
