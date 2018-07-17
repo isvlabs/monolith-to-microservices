@@ -1,4 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  ArtifactS3Bucket:
+    Type: String
+    Description: A valid S3 bucket where your application artifact(s) are available for deployment
+  ArtifactName:
+    Type: String
+    Description: The name of your artifact object (e.g. monolith.war)
 Resources:
   monolithApplication:
     Type: AWS::ElasticBeanstalk::Application
@@ -11,14 +18,16 @@ Resources:
         Ref: monolithApplication
       Description: AWS Elastic Beanstalk Monolith
       SourceBundle:
-        S3Bucket: !Sub "elasticbeanstalk-samples-${AWS::Region}"
-        S3Key: php-sample.zip
-  sampleConfigurationTemplate:
+        S3Bucket:
+          Ref: ArtifactS3Bucket
+        S3Key:
+          Ref: ArtifactName
+  applicationConfigurationTemplate:
     Type: AWS::ElasticBeanstalk::ConfigurationTemplate
     Properties:
       ApplicationName:
         Ref: monolithApplication
-      Description: AWS ElasticBeanstalk Sample Configuration Template
+      Description: AWS ElasticBeanstalk Application Configuration Template
       OptionSettings:
       - Namespace: aws:autoscaling:asg
         OptionName: MinSize
@@ -29,14 +38,14 @@ Resources:
       - Namespace: aws:elasticbeanstalk:environment
         OptionName: EnvironmentType
         Value: LoadBalanced
-      SolutionStackName: 64bit Amazon Linux running Tomcat
-  sampleEnvironment:
+      SolutionStackName: 64bit Amazon Linux 2018.03 v3.0.1 running Tomcat 8.5 Java 8
+  applicationEnvironment:
     Type: AWS::ElasticBeanstalk::Environment
     Properties:
       ApplicationName:
         Ref: monolithApplication
       Description: AWS ElasticBeanstalk Monolith
       TemplateName:
-        Ref: sampleConfigurationTemplate
+        Ref: applicationConfigurationTemplate
       VersionLabel:
         Ref: monolithApplicationVersion
