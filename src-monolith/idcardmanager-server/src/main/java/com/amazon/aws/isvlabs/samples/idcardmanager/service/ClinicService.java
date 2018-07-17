@@ -19,13 +19,14 @@ import com.amazon.aws.isvlabs.samples.idcardmanager.model.*;
 
 import java.util.Collection;
 
-
 /**
  * Mostly used as a facade so all controllers have a single point of entry
  *
  */
 public interface ClinicService {
     Employee findEmployeeById(int id);
+
     void saveEmployee(Employee owner);
+
     Collection<Employee> findAll();
 }

@@ -27,7 +27,7 @@ public class CacheConfig {
                         .heap(100, EntryUnit.ENTRIES))
                 .withExpiry(ExpiryPolicyBuilder.timeToLiveExpiration(java.time.Duration.ofSeconds(60)))
                 .build();
-            //cacheManager.createCache("employees", Eh107Configuration.fromEhcacheCacheConfiguration(config));
+            cacheManager.createCache("employees", Eh107Configuration.fromEhcacheCacheConfiguration(config));
         };
     }
 

@@ -5,20 +5,20 @@ USE idcardmanager;
 
 CREATE TABLE IF NOT EXISTS employees (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  first_name VARCHAR(30),
+  firstName VARCHAR(30),
   surname VARCHAR(30),
-  corporate_email VARCHAR(30),
-  birth_date DATE,
-  card_number INT(4) UNSIGNED NOT NULL,
+  corporateEmail VARCHAR(30),
+  birthDate DATE,
+  cardNumber INT(4) UNSIGNED NOT NULL,
   photo VARCHAR(2083),
   INDEX(corporate_email)
 ) engine=InnoDB;
 
 CREATE TABLE IF NOT EXISTS cards (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  card_number VARCHAR(30),
-  card_type VARCHAR(30),
-  issue_date DATE,
-  expiry_date DATE,
+  cardNumber VARCHAR(30),
+  cardType VARCHAR(30),
+  issueDate DATE,
+  expiryDate DATE,
   INDEX(card_number)
 ) engine=InnoDB;

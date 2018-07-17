@@ -30,6 +30,7 @@
     </dependencyManagement>
 
     <build>
+        <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>com.spotify</groupId>
@@ -70,6 +71,5 @@
             <url>http://repo.spring.io/milestone</url>
         </pluginRepository>
     </pluginRepositories>
-
 
 </project>

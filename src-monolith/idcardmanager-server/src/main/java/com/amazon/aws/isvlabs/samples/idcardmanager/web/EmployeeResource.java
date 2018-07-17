@@ -16,7 +16,6 @@
 package com.amazon.aws.isvlabs.samples.idcardmanager.web;
 
 import com.amazon.aws.isvlabs.samples.idcardmanager.model.Employee;
-import com.amazon.aws.isvlabs.samples.idcardmanager.model.Employees;
 import com.amazon.aws.isvlabs.samples.idcardmanager.service.ClinicService;
 
 import org.springframework.beans.factory.annotation.Autowired;

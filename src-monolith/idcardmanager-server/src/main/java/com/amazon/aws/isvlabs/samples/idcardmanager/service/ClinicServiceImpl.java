@@ -31,7 +31,6 @@ import java.util.Collection;
  * Mostly used as a facade for all ID Card Manager controllers
  * Also a placeholder for @Transactional and @Cacheable annotations
  *
- * @author Michael Isvy
  */
 @Service
 public class ClinicServiceImpl implements ClinicService {
@@ -45,8 +44,8 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     @Transactional(readOnly = true)
-    public Employee findEmployeeById(int employeeId) throws DataAccessException {
-        return employeeRepository.findById(employeeId).get();
+    public Employee findEmployeeById(int id) throws DataAccessException {
+        return employeeRepository.findById(id).get();
     }
 
     @Transactional(readOnly = true)

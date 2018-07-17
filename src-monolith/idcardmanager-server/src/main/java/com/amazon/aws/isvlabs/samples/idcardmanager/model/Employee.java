@@ -20,37 +20,35 @@ import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import java.util.*;
 
 /**
  * Simple JavaBean domain object representing an Employee.
- *
  */
 @Entity
 @Table(name = "employees")
 public class Employee extends BaseEntity {
 
-    @Column(name = "first_name")
+    @Column(name = "firstName")
     @NotEmpty
     protected String firstName;
 
-    @Column(name = "surname")
+    @Column(name = "Surname")
     @NotEmpty
     protected String surname;
 
-    @Column(name = "corporate_email")
+    @Column(name = "corporateEmail")
     @NotEmpty
     private String corporateEmail;
 
-    @Column(name = "birth_date")
+    @Column(name = "birthDate")
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @Column(name = "card_number")
+    @Column(name = "cardNumber")
     @NotEmpty
-    protected String cardNumber;
+    protected Integer cardNumber;
 
     @Column(name = "photo")
     @NotEmpty
@@ -84,10 +82,10 @@ public class Employee extends BaseEntity {
         return this.birthDate;
     }
 
-    public String getCardNumber() {
+    public Integer getCardNumber() {
         return this.cardNumber;
     }
-    public void setCardNumber(String cardNumber) {
+    public void setCardNumber(Integer cardNumber) {
         this.cardNumber = cardNumber;
     }
 
@@ -98,38 +96,6 @@ public class Employee extends BaseEntity {
         this.photo = photo;
     }
 
-    /**
-     * Return the Employee with the given name, or null if none found for this Owner.
-     *
-     * @param surname to test
-     * @return true if Employee surname is already in use
-     *
-    public Employee getEmployee(String surname) {
-        return getEmployee(surname, false);
-    }
-    */
-
-    /**
-     * Return the Pet with the given name, or null if none found for this Owner.
-     *
-     * @param name to test
-     * @return true if pet name is already in use
-     *
-    public Employee getEmployee(String name, boolean ignoreNew) {
-        name = name.toLowerCase();
-        for (Employee employee : getEmployeesInternal()) {
-            if (!ignoreNew || !employee.isNew()) {
-                String compName = employee.getSurname();
-                compName = compName.toLowerCase();
-                if (compName.equals(name)) {
-                    return employee;
-                }
-            }
-        }
-        return null;
-    }
-*/
-
     @Override
     public String toString() {
         return new ToStringCreator(this)
@@ -138,7 +104,7 @@ public class Employee extends BaseEntity {
             .append("surname", this.getSurname())
             .append("corporateEmail", this.corporateEmail)
             .append("birthDate", this.birthDate)
-            .append("card_number", this.cardNumber)
+            .append("cardNumber", this.cardNumber)
             .append("photo", this.photo)
             .toString();
     }

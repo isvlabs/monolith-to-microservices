@@ -23,4 +23,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * conventions so this interface can easily be extended for Spring Data See here: http://static.springsource.org/spring-data/jpa/docs/current/reference/html/jpa.repositories.html#jpa.query-methods.query-creation
  *
  */
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> { }
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+}
