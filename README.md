@@ -179,6 +179,12 @@ This SpringBoot Application is split in 2 modules - a client module and a server
 | Angular JS        | [app.js, controllers and templates](idcardmanager-client/src/scripts/)  |
 
 
+## Building the application locally
+
+To build the the .war file locally:
+
+
+
 ## Hosting and launching the Monolith on AWS
 
 Now that we have the monolith running locally, we're going to host it on AWS. Because the monolith is a simple 2/3 tier application architecture, AWS Elastic Beanstalk with Amazon RDS makes this really easy.
